@@ -12,17 +12,59 @@ body {
 }
 
 .grid-item {
-    background-color: #3498db;
+    background-color: rgba(245, 245, 240, 1); /* Blanc cassé */
     position: relative;
     width: 100%;
     padding-bottom: 75%; /* Ratio 4:3 */
     border-radius: 10px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card-title, .card-description {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: black;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+    z-index: 2; /* Pour s'assurer que le texte apparaît au-dessus de la superposition */
+}
+
+.card-title {
+    top: 30%;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.card-description {
+    top: 50%;
+    font-size: 1.1em;
 }
 
 .grid-item:hover {
     transform: scale(1.05);
-    background-color: bisque;
+    background-color: rgba(245, 245, 240, 0.9); /* Blanc cassé semi-opaque qui recouvrira l'image */
+}
+
+.grid-item:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(245, 245, 240, 0.9); /* Même couleur pour la superposition */
+    z-index: 1;
+}
+
+.grid-item:hover .card-title,
+.grid-item:hover .card-description {
+    opacity: 1;
 }
 
 /* Media Queries pour différentes tailles d'écran */
@@ -84,3 +126,32 @@ nav ul {
     text-decoration: none;
     color: #333;
 }
+
+/* styles pour la page principale */
+.dunes {
+    background-image: url("images/dunes.jpg");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    font-family: "Silkscreen", serif;
+}
+.skin {
+    background-image: url("images/skin.PNG");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    font-family: "Silkscreen", serif;
+}
+
+.card-title {
+    vertical-align: middle;
+    font-weight: bolder;
+}
+
+.card-description {
+    text-align: center;
+    font-size: small;
+    margin-top: 20px;
+}
+
+
