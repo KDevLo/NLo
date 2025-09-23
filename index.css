@@ -142,6 +142,20 @@ nav ul {
     background-repeat: no-repeat;
     font-family: "Silkscreen", serif;
 }
+.air {
+    background-image: url("images/air.PNG");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    font-family: "Silkscreen", serif;
+}
+.fire {
+    background-image: url("images/fire.PNG");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    font-family: "Silkscreen", serif;
+}
 
 .card-title {
     vertical-align: middle;
