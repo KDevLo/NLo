@@ -11,9 +11,103 @@ body {
 header {
     background-color: white;
     padding: 20px;
-    box-shadow: 0 px 7px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 10;
+}
+
+/* Styles de navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    padding: 10px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #3498db;
+}
+
+.home {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.nav-logo {
+    text-decoration: none;
+    color: #333;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    background-color: #333;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
 }
 
 .main-content {
@@ -29,7 +123,7 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/fondRadio.jpg');
+    background-image: url('Images/fondRadio.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -162,30 +256,79 @@ nav ul {
     color: #333;
 }
 
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    background-color: #333;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+}
+
 /* styles pour la page principale */
 .dunes {
-    background-image: url("images/dunes.jpg");
+    background-image: url("Images/dunes.jpg");
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
     font-family: "Silkscreen", serif;
 }
 .skin {
-    background-image: url("images/skin.PNG");
+    background-image: url("Images/skin.PNG");
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
     font-family: "Silkscreen", serif;
 }
 .air {
-    background-image: url("images/air.PNG");
+    background-image: url("Images/air.PNG");
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
     font-family: "Silkscreen", serif;
 }
 .fire {
-    background-image: url("images/fire.PNG");
+    background-image: url("Images/fire.PNG");
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -201,6 +344,60 @@ nav ul {
     text-align: center;
     font-size: small;
     margin-top: 20px;
+}
+
+
+/* Styles pour le menu burger */
+/* --- Bouton --- */
+.menu-btn {
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-btn span {
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 3px;
+  transition: all 0.4s ease;
+}
+
+.menu-btn span:nth-child(1) {
+  top: 0;
+}
+.menu-btn span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.menu-btn span:nth-child(3) {
+  bottom: 0;
+}
+
+/* --- Quand on active (menu ouvert) --- */
+.menu-btn.active span {
+  background: #0f0; /* couleur verte type "radio" */
+}
+
+.menu-btn.active span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) scaleY(0.3);
+  height: 14px;
+}
+.menu-btn.active span:nth-child(2) {
+  transform: translateY(-50%) scaleY(1.8);
+  height: 20px;
+}
+.menu-btn.active span:nth-child(3) {
+  bottom: auto;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0.6);
+  height: 10px;
 }
 
 
